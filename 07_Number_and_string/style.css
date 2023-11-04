@@ -1,0 +1,40 @@
+.calc-row {
+    height: 100vh;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.container {
+    background-color: rgb(255, 255, 255);
+}
+
+.card {
+    background-color: rgb(0, 248, 62);
+}
+
+#btn_clr {
+    background-color: rgb(236, 146, 146);
+}
+
+#btn_0,
+#btn_1,
+#btn_2,
+#btn_3,
+#btn_4,
+#btn_5,
+#btn_6,
+#btn_7,
+#btn_8,
+#btn_9,
+#btn_calc,
+#btn_def,
+#btn_divide,
+#btn_mul,
+#btn_sum,
+#btn_sqrt {
+    background-color: rgb(234, 0, 255);
+}
+
+.input-window {
+    text-align: end;
+    font-size: x-large;
+}

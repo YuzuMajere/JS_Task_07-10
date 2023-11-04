@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор случайных пользователей</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="card_card">
+            <div class="card_main">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="generatorWindow h_Default">Окно результатов генерации</h4>
+                            <h3 class="h_Default">Отчество:&nbsp; <span id="middleNameOutput"></span></h3>
+                            <h3 class="card-title h_Default">Фамилия:&nbsp; <span id="surnameOutput"></span></h3>
+                            <h4 class="h_Default">Имя:&nbsp; <span id="firstNameOutput">Иван</span></h4>
+                            <h4 class="h_Default">Призвание:&nbsp; <span id="personJob"></span></h4>
+                            <p class="h_Default">
+                                <span id="genderOutput">Генерация пола</span>
+                                <span>,&nbsp; </span>
+                                <span id="birthYearOutput">Генерация года рождения</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-outline-black" id="btn_clr2">CLear</button>
+                        <button class="btn btn-outline-black" id="btn_generate">Generate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="personGenerator.js"></script>
+    <script src="init.js"></script>
+</body>
+
+</html>
