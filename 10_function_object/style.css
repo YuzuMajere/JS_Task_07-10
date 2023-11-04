@@ -1,0 +1,41 @@
+.container {
+    background-color: rgb(34, 51, 87);
+    display: flex;
+    margin: 0 auto;
+    min-width: 1000px;
+    font-style: italic;
+}
+
+.card_card {
+    margin: 25px auto;
+    align-items: center;
+    display: flex;
+    padding: 0 auto;
+}
+
+.card-body {
+    min-width: 500px;
+    background-color: rgb(255, 255, 255);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.h_Default {
+    display: flex;
+    justify-content: left;
+}
+
+.generatorWindow {
+    text-decoration-line: underline;
+    display: flex;
+    justify-items: center;
+}
+
+#btn_clr2,
+#btn_generate {
+    color: rgb(255, 255, 255);
+    background-color: black;
+}
