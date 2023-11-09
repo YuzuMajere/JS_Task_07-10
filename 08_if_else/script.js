@@ -4,7 +4,9 @@ let maxValue = parseInt(prompt('Максимальное знание числа
 minValue = (minValue === NaN) ? minValue = 0 : minValue;
 maxValue = (maxValue === NaN) ? maxValue = 100 : maxValue;
 minValue = (minValue <= -999) ? minValue = -999 : minValue;
+minValue = (minValue >= 998) ? minValue = 0 : minValue;
 maxValue = (maxValue >= 999) ? maxValue = 999 : maxValue;
+maxValue = (maxValue <= -999) ? maxValue = -100 : maxValue;
 
 alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
 let answerNumber = Math.floor((minValue + maxValue) / 2);
@@ -28,7 +30,9 @@ document.getElementById('btnRetry').addEventListener('click', function () {
     minValue = (minValue === NaN) ? minValue = 0 : minValue;
     maxValue = (maxValue === NaN) ? maxValue = 100 : maxValue;
     minValue = (minValue <= -999) ? minValue = -999 : minValue;
+    minValue = (minValue >= 998) ? minValue = 0 : minValue;
     maxValue = (maxValue >= 999) ? maxValue = 999 : maxValue;
+    maxValue = (maxValue <= -999) ? maxValue = -100 : maxValue;
     alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
     answerNumber = Math.floor((minValue + maxValue) / 2);
     answerField.innerText = `Вы загадали число ${answerNumber }?`;
@@ -62,19 +66,25 @@ document.getElementById('btnOver').addEventListener('click', function () {
         } else {
             minValue = answerNumber + 1;
             answerNumber = Math.floor((minValue + maxValue) / 2);
-            orderNumber++;            
-            orderNumberField.innerText = orderNumber;
-            const phraseRandom2 = Math.round(Math.random() * 3);
-            switch (phraseRandom2) {
-                case 1:
-                    answerField.innerText = `Вы загадали число ${answerNumber }?`;
-                    break;
-                case 2:
-                    answerField.innerText = `Ваше число: ${answerNumber }, я точно знаю!`;
-                    break;
-                case 3:
-                    answerField.innerText = `Что-то мне подсказывает, ваше число -- ${answerNumber }!`;
-                    break;
+            orderNumber++;
+            if (Math.abs(answerNumber) > Math.abs(maxValue)) {
+                answerPhrase = `Вы загадали неправильное число!\n\u{1F914}`;
+                answerField.innerText = answerPhrase;
+                gameRun = false;
+            } else {
+                orderNumberField.innerText = orderNumber;
+                const phraseRandom2 = Math.round(Math.random() * 3);
+                switch (phraseRandom2) {
+                    case 1:
+                        answerField.innerText = `Вы загадали число ${answerNumber }?`;
+                        break;
+                    case 2:
+                        answerField.innerText = `Ваше число: ${answerNumber }, я точно знаю!`;
+                        break;
+                    case 3:
+                        answerField.innerText = `Что-то мне подсказывает, ваше число -- ${answerNumber }!`;
+                        break;
+                }
             }
             console.log(minValue, maxValue, answerNumber);
             // console.log('2', minValue, maxValue);
@@ -108,18 +118,24 @@ document.getElementById('btnLess').addEventListener('click', function () {
             maxValue = answerNumber - 1;
             answerNumber = Math.floor((minValue + maxValue) / 2);
             orderNumber++;
-            orderNumberField.innerText = orderNumber;
-            const phraseRandom4 = Math.round(Math.random() * 3);
-            switch (phraseRandom4) {
-                case 1:
-                    answerField.innerText = `Вы загадали число ${answerNumber }?`;
-                    break;
-                case 2:
-                    answerField.innerText = `Ваше число: ${answerNumber }, я точно знаю!`;
-                    break;
-                case 3:
-                    answerField.innerText = `Что-то мне подсказывает, ваше число -- ${answerNumber }!`;
-                    break;
+            if (Math.abs(answerNumber) < Math.abs(minValue)) {
+                answerPhrase = `Вы загадали неправильное число!\n\u{1F914}`;
+                answerField.innerText = answerPhrase;
+                gameRun = false;
+            } else {
+                orderNumberField.innerText = orderNumber;
+                const phraseRandom4 = Math.round(Math.random() * 3);
+                switch (phraseRandom4) {
+                    case 1:
+                        answerField.innerText = `Вы загадали число ${answerNumber }?`;
+                        break;
+                    case 2:
+                        answerField.innerText = `Ваше число: ${answerNumber }, я точно знаю!`;
+                        break;
+                    case 3:
+                        answerField.innerText = `Что-то мне подсказывает, ваше число -- ${answerNumber }!`;
+                        break;
+                }
             }
             console.log(minValue, maxValue, answerNumber);
         }
